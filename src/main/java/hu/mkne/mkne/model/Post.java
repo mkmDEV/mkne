@@ -29,8 +29,10 @@ public class Post {
 
     private LocalDateTime publishDate;
 
+    @Column(nullable = false)
     private Boolean isPublished;
 
+    @Column(nullable = false)
     private String title;
 
     private String postBody;
