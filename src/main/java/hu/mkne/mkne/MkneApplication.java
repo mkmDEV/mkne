@@ -1,8 +1,8 @@
 package hu.mkne.mkne;
 
+import hu.mkne.mkne.model.Member;
 import hu.mkne.mkne.model.Post;
 import hu.mkne.mkne.model.PostCategory;
-import hu.mkne.mkne.model.Member;
 import hu.mkne.mkne.repository.MemberRepository;
 import hu.mkne.mkne.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +31,8 @@ public class MkneApplication {
                     .email("test@test.com")
                     .username("test")
                     .password("1234")
+                    .firstName("Elek")
+                    .lastName("Teszt")
                     .build();
 
             Post post1 = Post.builder()
@@ -42,6 +44,8 @@ public class MkneApplication {
 
             memberRepository.save(member1);
             postRepository.save(post1);
+            post1.publishPost();
+            postRepository.saveAndFlush(post1);
         };
     }
 }
