@@ -20,6 +20,17 @@ public class PostController {
 
     @GetMapping
     public List<Post> getPosts() {
-        return service.getOrderedPosts();
+        return service.getAllPublishedPosts();
     }
+
+    @GetMapping("/ads")
+    public List<Post> getAds() {
+        return service.getAds();
+    }
+
+    @GetMapping("/news")
+    public List<Post> getAllPublishedNews() {
+        return service.getAllPublishedNews();
+    }
+
 }
