@@ -58,10 +58,8 @@ public class Member {
                 ", last_name='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", roles=" + roles +
                 ", regDate=" + regDate +
                 ", avatar='" + avatar + '\'' +
-                ", posts=" + posts +
                 '}';
     }
 }
