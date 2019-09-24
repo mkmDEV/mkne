@@ -36,7 +36,6 @@ public class PostService {
     public Post addPost(Post post) {
         Member author = memberRepository.getOne((long) 1);
         post.setAuthor(author);
-        post.setTitle(post.getTitle());
         postRepository.save(post);
         return post;
     }
