@@ -1,5 +1,5 @@
 # TODOs
-* fa icons
+* &#x2611; ~~fa icons~~
 * favicon
 * new post site
 * 
