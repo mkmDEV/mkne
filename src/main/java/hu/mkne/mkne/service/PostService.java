@@ -39,4 +39,19 @@ public class PostService {
         postRepository.save(post);
         return post;
     }
+
+    public Post updatePost(Long id, Post post) {
+        Post amendPost = postRepository.findById(id).orElse(null);
+        if (amendPost != null) {
+            amendPost.setTitle(post.getTitle());
+            amendPost.setAuthor(post.getAuthor());
+            amendPost.setCategory(post.getCategory());
+            amendPost.setIsPublished(post.getIsPublished());
+            amendPost.setPostBody(post.getPostBody());
+            postRepository.save(amendPost);
+            if (post.getIsPublished()) amendPost.publishPost();
+        }
+
+        return amendPost;
+    }
 }
