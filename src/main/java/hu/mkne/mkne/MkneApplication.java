@@ -58,6 +58,14 @@ public class MkneApplication {
                     .isPublished(false)
                     .build();
 
+            Post post2 = Post.builder()
+                    .category(PostCategory.NEWS)
+                    .postBody("This is another test post. Dolorem ipsum sit dolor amet.")
+                    .title("Second test post")
+                    .author(member1)
+                    .isPublished(false)
+                    .build();
+
             Post unpublishedPost = Post.builder()
                     .category(PostCategory.NEWS)
                     .postBody("This post never published. Only for testing.")
@@ -68,8 +76,16 @@ public class MkneApplication {
 
             Post advert = Post.builder()
                     .category(PostCategory.ADVERT)
-                    .postBody("This is a very new fancy advertistment.")
-                    .title("Veddmegmost!")
+                    .postBody("This is a very new fancy advertisement.")
+                    .title("Vedd meg most!")
+                    .author(member1)
+                    .isPublished(false)
+                    .build();
+
+            Post advert2 = Post.builder()
+                    .category(PostCategory.ADVERT)
+                    .postBody("This is an other very new fancy advertisement. Lorem ipsum for sale!")
+                    .title("Sale!")
                     .author(member1)
                     .isPublished(false)
                     .build();
@@ -77,12 +93,20 @@ public class MkneApplication {
 
             memberRepository.save(member1);
             postRepository.save(post1);
+            postRepository.save(post2);
             postRepository.save(unpublishedPost);
             postRepository.save(advert);
+            postRepository.save(advert2);
+
             post1.publishPost();
+            post2.publishPost();
             advert.publishPost();
+            advert2.publishPost();
+
             postRepository.saveAndFlush(post1);
+            postRepository.saveAndFlush(post2);
             postRepository.saveAndFlush(advert);
+            postRepository.saveAndFlush(advert2);
         };
     }
 }
