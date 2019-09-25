@@ -14,31 +14,31 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PostController {
 
-    private final PostService service;
+    private final PostService postService;
 
     @GetMapping
     public List<Post> getPosts() {
-        return service.getAllPublishedPosts();
+        return postService.getAllPublishedPosts();
     }
 
     @GetMapping("/ads")
     public List<Post> getAds() {
-        return service.getAds();
+        return postService.getAds();
     }
 
     @GetMapping("/news")
     public List<Post> getAllPublishedNews() {
-        return service.getAllPublishedNews();
+        return postService.getAllPublishedNews();
     }
 
     @PostMapping
     public Post addPost(@Valid @RequestBody Post post) {
-        return service.addPost(post);
+        return postService.addPost(post);
     }
 
     @PutMapping("{id}")
     public Post updatePost(@PathVariable("id") Long id, @RequestBody Post post) {
-        return service.updatePost(id, post);
+        return postService.updatePost(id, post);
     }
 
 }
