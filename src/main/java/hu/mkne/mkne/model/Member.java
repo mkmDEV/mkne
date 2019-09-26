@@ -5,7 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -39,7 +39,7 @@ public class Member {
     private Set<String> roles = new HashSet<>();
 
     @CreationTimestamp
-    private LocalDate regDate;
+    private LocalDateTime regDate;
 
     private String avatar;
 
@@ -54,12 +54,14 @@ public class Member {
         return "Member{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", first_name='" + firstName + '\'' +
-                ", last_name='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", roles=" + roles +
                 ", regDate=" + regDate +
                 ", avatar='" + avatar + '\'' +
+                ", posts=" + posts +
                 '}';
     }
 }
