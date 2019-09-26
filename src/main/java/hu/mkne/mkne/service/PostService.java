@@ -54,4 +54,11 @@ public class PostService {
 
         return amendPost;
     }
+
+    public boolean deletePost(Long id) {
+        Post removePost = postRepository.findById(id).orElse(null);
+        if (removePost == null) return false;
+        postRepository.delete(removePost);
+        return true;
+    }
 }
