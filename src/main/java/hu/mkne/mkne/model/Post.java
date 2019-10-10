@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 @Table(name = "post")
 public class Post {
 
+    @TableGenerator(name = "Post_Gen", initialValue = 6)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -35,6 +36,7 @@ public class Post {
     @Column(nullable = false)
     private String title;
 
+    @Column(columnDefinition = "TEXT")
     private String postBody;
 
     @Enumerated(value = EnumType.STRING)
