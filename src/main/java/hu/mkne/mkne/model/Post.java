@@ -35,6 +35,7 @@ public class Post {
     @Column(nullable = false)
     private String title;
 
+    @Column(columnDefinition = "TEXT")
     private String postBody;
 
     @Enumerated(value = EnumType.STRING)

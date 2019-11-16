@@ -60,8 +60,7 @@ public class Member {
                 ", password='" + password + '\'' +
                 ", roles=" + roles +
                 ", regDate=" + regDate +
-                ", avatar='" + avatar + '\'' +
-                ", posts=" + posts +
+                ", avatar='" + avatar +
                 '}';
     }
 }

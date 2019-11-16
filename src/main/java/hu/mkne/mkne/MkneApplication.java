@@ -44,7 +44,7 @@ public class MkneApplication {
         return args -> {
             Member member1 = Member.builder()
                     .email("test@test.com")
-                    .username("test")
+                    .username("admin")
                     .password("1234")
                     .firstName("Elek")
                     .lastName("Teszt")
@@ -52,16 +52,16 @@ public class MkneApplication {
 
             Post post1 = Post.builder()
                     .category(PostCategory.NEWS)
-                    .postBody("This is a test post. Dolorem ipsum sit dolor amet.")
-                    .title("First test")
+                    .title("Fenntarthatóság témaköre a magyar felsőoktatásban")
+                    .postBody("A Magyar Tudományos Akadémia és az UNESCO Magyar Nemzeti Bizottság az ELTE Humánökológia mesterszak közreműködésével, 2018. november 19-én tudományos tanácskozást rendezett, amin a Magyar Környezeti Nevelési Egyesület több tagja is részt vett. \"A fenntarthatóság pedagógiája\" szekció vitaindító anyagát Victor András készítette, a vitát Varga Attila vezette. A szekciókban kialakult álláspontokat és a javaslatokat bemutató kiadvány itt letölthető, vagy innen elérhető: http://ofi.hu/hir/fenntarthatosag-temakor-es-magyar-felsooktatas")
                     .author(member1)
                     .isPublished(false)
                     .build();
 
             Post post2 = Post.builder()
                     .category(PostCategory.NEWS)
-                    .postBody("This is another test post. Dolorem ipsum sit dolor amet.")
-                    .title("Second test post")
+                    .title("Országos Környezeti Nevelési Konferencia")
+                    .postBody("Szakmai, civil és tudományos szervezetek közösségeit képviselő szakértők, ökopedagógusok, szemléletformálók, kommunikátorok és kutatók közreműködésével elkészültek a Nemzeti Környezeti Nevelési Stratégiai Alapvetés legújabb kéziratai. A megújított Alapvetés véglegesítése előtt, az immár 21 éves hagyománynak megfelelően, nyilvános konferenciát tartott a munkát összefogó Magyar Környezeti Nevelési Egyesület.")
                     .author(member1)
                     .isPublished(false)
                     .build();
@@ -74,6 +74,7 @@ public class MkneApplication {
                     .isPublished(false)
                     .build();
 
+
             Post advert = Post.builder()
                     .category(PostCategory.ADVERT)
                     .postBody("This is a very new fancy advertisement.")
@@ -84,8 +85,10 @@ public class MkneApplication {
 
             Post advert2 = Post.builder()
                     .category(PostCategory.ADVERT)
-                    .postBody("This is an other very new fancy advertisement. Lorem ipsum for sale!")
-                    .title("Sale!")
+                    .title("1%")
+                    .postBody("Kedves Tagtársunk, Támogatónk!\n" +
+                            "Örömmel vesszük és megköszönjük,  ha adód 1%-át egyesületünknek ajánlod fel, s erre biztatod ismerőseidet is.\n" +
+                            "A befolyt összeget programjaink megvalósítására fordítjuk.")
                     .author(member1)
                     .isPublished(false)
                     .build();
