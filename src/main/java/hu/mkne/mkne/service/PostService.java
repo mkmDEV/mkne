@@ -34,7 +34,7 @@ public class PostService {
     }
 
     public Post addPost(Post post) {
-        Member author = memberRepository.findById((long) 1).orElse(null);
+        Member author = memberRepository.findById(1L).orElse(null);
         post.setAuthor(author);
         if (post.getIsPublished()) post.publishPost();
         postRepository.save(post);

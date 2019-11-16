@@ -12,6 +12,6 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     public Member getFirstUser() {
-        return memberRepository.findById((long) 1).orElse(null);
+        return memberRepository.findById(1L).orElse(null);
     }
 }
