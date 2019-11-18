@@ -60,6 +60,16 @@ public class MkneApplication {
 
             Post post2 = Post.builder()
                     .category(PostCategory.NEWS)
+                    .title("Ökokarácsony")
+                    .postBody("Bízunk benne, hogy újra nagyon sokan tölthetjük együtt az adventi időszak egy meghitt délelőttjét, ajándékok készítésével készülve az ünnepre.\n" +
+                            "Idén december 7-én, szombaton 10–13 óráig tartjuk ökokarácsonyi rendezvényünket az MKNE és a Lágymányosi Bárdos Lajos Két Tanítási Nyelvű Általános Iskola közös szervezésében." +
+                            "\nCímünk: (1117 Budapest, Baranyai utca 16‒18.) ")
+                    .author(member1)
+                    .isPublished(false)
+                    .build();
+
+            Post post3 = Post.builder()
+                    .category(PostCategory.NEWS)
                     .title("Országos Környezeti Nevelési Konferencia")
                     .postBody("Szakmai, civil és tudományos szervezetek közösségeit képviselő szakértők, ökopedagógusok, szemléletformálók, kommunikátorok és kutatók közreműködésével elkészültek a Nemzeti Környezeti Nevelési Stratégiai Alapvetés legújabb kéziratai. A megújított Alapvetés véglegesítése előtt, az immár 21 éves hagyománynak megfelelően, nyilvános konferenciát tartott a munkát összefogó Magyar Környezeti Nevelési Egyesület.")
                     .author(member1)
@@ -74,11 +84,10 @@ public class MkneApplication {
                     .isPublished(false)
                     .build();
 
-
             Post advert = Post.builder()
                     .category(PostCategory.ADVERT)
-                    .postBody("This is a very new fancy advertisement.")
-                    .title("Vedd meg most!")
+                    .postBody("Szeretettel várjuk a 8-14 éves diákokat következő Agostyán Ágoston-ligetbeli táborunkba augusztus 22-26 között!")
+                    .title("Mocorgó Puli tábor!")
                     .author(member1)
                     .isPublished(false)
                     .build();
@@ -87,27 +96,29 @@ public class MkneApplication {
                     .category(PostCategory.ADVERT)
                     .title("1%")
                     .postBody("Kedves Tagtársunk, Támogatónk!\n" +
-                            "Örömmel vesszük és megköszönjük,  ha adód 1%-át egyesületünknek ajánlod fel, s erre biztatod ismerőseidet is.\n" +
+                            "Örömmel vesszük és megköszönjük, ha adód 1%-át egyesületünknek ajánlod fel és erre biztatod ismerőseidet is.\n" +
                             "A befolyt összeget programjaink megvalósítására fordítjuk.")
                     .author(member1)
                     .isPublished(false)
                     .build();
 
-
             memberRepository.save(member1);
             postRepository.save(post1);
             postRepository.save(post2);
+            postRepository.save(post3);
             postRepository.save(unpublishedPost);
             postRepository.save(advert);
             postRepository.save(advert2);
 
             post1.publishPost();
             post2.publishPost();
+            post3.publishPost();
             advert.publishPost();
             advert2.publishPost();
 
             postRepository.saveAndFlush(post1);
             postRepository.saveAndFlush(post2);
+            postRepository.saveAndFlush(post3);
             postRepository.saveAndFlush(advert);
             postRepository.saveAndFlush(advert2);
         };
