@@ -33,6 +33,10 @@ public class PostService {
         return postRepository.getPostsByCategoryAndIsPublishedTrueOrderByPublishDateDesc(PostCategory.NEWS);
     }
 
+    public List<Post> findAll(String q) {
+        return postRepository.findByPostBodyContainingAndIsPublishedTrueOrderByPublishDateDesc(q);
+    }
+
     public Post addPost(Post post) {
         Member author = memberRepository.findById(1L).orElse(null);
         post.setAuthor(author);
