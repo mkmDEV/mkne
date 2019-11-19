@@ -13,4 +13,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     List<Post> getPostsByCategoryAndIsPublishedTrueOrderByPublishDateDesc(PostCategory category);
 
     List<Post> getPostsByIsPublishedTrueOrderByPublishDateDesc();
+
+    List<Post> findByPostBodyContainingAndIsPublishedTrueOrderByPublishDateDesc(String postBody);
 }

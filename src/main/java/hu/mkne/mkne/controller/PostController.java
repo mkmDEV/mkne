@@ -21,14 +21,19 @@ public class PostController {
         return postService.getAllPublishedPosts();
     }
 
-    @GetMapping("/ads")
-    public List<Post> getAds() {
-        return postService.getAds();
-    }
-
     @GetMapping("/news")
     public List<Post> getAllPublishedNews() {
         return postService.getAllPublishedNews();
+    }
+
+    @GetMapping("/search")
+    public List<Post> findAll(@RequestParam String q) {
+        return postService.findAll(q);
+    }
+
+    @GetMapping("/ads")
+    public List<Post> getAds() {
+        return postService.getAds();
     }
 
     @PostMapping
