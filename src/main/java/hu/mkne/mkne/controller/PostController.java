@@ -1,6 +1,7 @@
 package hu.mkne.mkne.controller;
 
 import hu.mkne.mkne.model.Post;
+import hu.mkne.mkne.model.PostCategory;
 import hu.mkne.mkne.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,11 @@ public class PostController {
     @GetMapping("/ads")
     public List<Post> getAds() {
         return postService.getAds();
+    }
+
+    @GetMapping("/categories")
+    public PostCategory[] getCategories() {
+        return PostCategory.values();
     }
 
     @PostMapping
