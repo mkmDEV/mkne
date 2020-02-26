@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "post")
 public class Post {
 
     @Id
@@ -52,12 +51,10 @@ public class Post {
     public String toString() {
         return "Post{" +
                 "id=" + id +
-                ", author=" + author +
                 ", creation_date=" + creationDate +
                 ", publish_date=" + publishDate +
                 ", title='" + title + '\'' +
-                ", post_body='" + postBody + '\'' +
-                ", category=" + category +
+                ", post_body='" + postBody +
                 '}';
     }
 

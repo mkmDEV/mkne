@@ -14,7 +14,6 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "member")
 public class Member {
 
     @Id
@@ -58,7 +57,6 @@ public class Member {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", roles=" + roles +
                 ", regDate=" + regDate +
                 ", avatar='" + avatar +
                 '}';
