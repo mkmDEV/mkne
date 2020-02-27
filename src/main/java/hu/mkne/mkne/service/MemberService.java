@@ -49,4 +49,8 @@ public class MemberService {
     public Member getLoggedInUser(Member member) {
         return this.memberRepository.findByEmail(member.getEmail()).orElse(null);
     }
+
+    public Member getMemberById(Long id) {
+        return this.memberRepository.findById(id).orElse(null);
+    }
 }

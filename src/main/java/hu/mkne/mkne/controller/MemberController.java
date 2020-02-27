@@ -3,10 +3,7 @@ package hu.mkne.mkne.controller;
 import hu.mkne.mkne.model.Member;
 import hu.mkne.mkne.service.MemberService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -19,5 +16,15 @@ public class MemberController {
     @GetMapping
     public Member getFirstUser() {
         return memberService.getFirstUser();
+    }
+
+    @PostMapping("/logged-in-member")
+    public Member getLoggedInMember(@RequestBody Member member) {
+        return memberService.getLoggedInUser(member);
+    }
+
+    @PostMapping("/member")
+    public Member getMember(@RequestBody Member member) {
+        return memberService.getMemberById(member.getId());
     }
 }
