@@ -11,23 +11,29 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.util.Set;
+
 @SpringBootApplication
-@RequiredArgsConstructor
 @EnableSwagger2
+@RequiredArgsConstructor
 public class MkneApplication {
 
     private final MemberRepository memberRepository;
     private final PostRepository postRepository;
+    private static PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
     public static void main(String[] args) {
         SpringApplication.run(MkneApplication.class, args);
     }
+
 
     @Bean
     public Docket api() {
@@ -45,9 +51,10 @@ public class MkneApplication {
             Member member1 = Member.builder()
                     .email("test@test.com")
                     .username("admin")
-                    .password("1234")
+                    .password(passwordEncoder.encode("1234"))
                     .firstName("Elek")
                     .lastName("Teszt")
+                    .roles(Set.of("USER", "ADMIN"))
                     .build();
 
             Post post1 = Post.builder()
